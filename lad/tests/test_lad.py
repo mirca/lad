@@ -11,7 +11,7 @@ def test_least_absolute_deviations():
 
     X = np.vstack([x, np.ones(len(x))])
 
-    coeffs = lad(X.T, y, yerr=np.sqrt(np.abs(y)), l1_regularizer=1., niters=10)
+    coeffs = lad(X.T, y)
     sess = tf.Session()
     m, b = sess.run(coeffs)
 
