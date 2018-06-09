@@ -1,1 +1,3 @@
 .ipynb_checkpoints
+.eggs
+lad.egg-info
