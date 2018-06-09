@@ -2,3 +2,5 @@
 .eggs
 lad.egg-info
 __pycache__
+.cache
+.coverage
