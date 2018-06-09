@@ -1,7 +1,7 @@
 import tensorflow as tf
 import math
 
-def lad(X, y, yerr=None, l1_regularizer=0.12, niters=5, rtol=1e-4,
+def lad(X, y, yerr=None, l1_regularizer=0.12, maxiter=5, rtol=1e-4,
         eps=1e-4, session=None):
     """
     Linear least absolute deviations with L1 norm regularization using
@@ -19,8 +19,8 @@ def lad(X, y, yerr=None, l1_regularizer=0.12, niters=5, rtol=1e-4,
         Factor to control the importance of the L1 regularization.
         Note: due to a limitation of tensorflow.matrix_solve_ls,
         do not set this value to zero
-    niters : int
-        Number of iterations of the Majorization-Minimization
+    maxiter : int
+        Maximum number of iterations of the majorization-minimization algorithm
     rtol : float
         Relative tolerance used as an early stopping criterion
     eps : float
@@ -56,7 +56,7 @@ def lad(X, y, yerr=None, l1_regularizer=0.12, niters=5, rtol=1e-4,
         # use it as initial values for the MM algorithm
         x = tf.matrix_solve_ls(X_tensor, y_tensor, l2_regularizer=l1_regularizer)
         n = 0
-        while n < niters:
+        while n < maxiter:
             reg_factor = tf.norm(x, ord=1)
             l1_factor = eps + tf.sqrt(tf.abs(y_tensor - tf.matmul(X_tensor, x)))
 
