@@ -3,9 +3,10 @@ lad
 
 Least absolute deviations with L1 regularization using majorization-minimization.
 In estimation theory terms, this is the Maximum A Posterior (MAP) estimator for
-a Laplacian likelihood with Laplacian prior.
+a Laplacian likelihood with Laplacian prior, i.e.
 
 .. image:: lad.png
+
 
 Installation
 ------------
