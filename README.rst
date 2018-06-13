@@ -1,5 +1,13 @@
 lad
 ===
+|ci-badge| |cov-badge| |zenodo-badge|
+
+.. |ci-badge| image:: https://travis-ci.org/mirca/lad.svg?branch=master
+    :target: https://travis-ci.org/mirca/lad
+.. |cov-badge| image:: https://codecov.io/gh/mirca/lad/branch/master/graph/badge.svg
+    :target: https://codecov.io/gh/mirca/lad/branch/master/
+.. |zenodo-badge| image:: https://zenodo.org/badge/136721899.svg
+   :target: https://zenodo.org/badge/latestdoi/136721899
 
 Least absolute deviations with L1 regularization using majorization-minimization.
 In estimation theory terms, this is the Maximum A Posterior (MAP) estimator for
