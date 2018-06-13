@@ -21,7 +21,9 @@ def lad(X, y, yerr=None, l1_regularizer=0.5, maxiter=50, rtol=1e-4,
         Note: due to a limitation of tensorflow.matrix_solve_ls,
         do not set this value to zero
     maxiter : int
-        Maximum number of iterations of the majorization-minimization algorithm
+        Maximum number of iterations of the majorization-minimization algorithm.
+        If maxiter equals zero, then this function returns the Weighted
+        Least-Squares coefficients
     rtol : float
         Relative tolerance used as an early stopping criterion
     eps : float
@@ -70,8 +72,8 @@ def lad(X, y, yerr=None, l1_regularizer=0.5, maxiter=50, rtol=1e-4,
                                     l2_regularizer=l1_regularizer/reg_factor)
 
             rel_err = tf.norm(x - xo, ord=1) / tf.maximum(tf.constant(1., dtype=tf.float64), reg_factor)
+            x = xo
             if session.run(rel_err) < rtol:
                 break
-            x = xo
             n += 1
-    return xo
+    return x
