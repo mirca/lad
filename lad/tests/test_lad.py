@@ -12,9 +12,9 @@ def test_least_absolute_deviations():
     X = np.vstack([x, np.ones(len(x))])
 
     m, b = sess.run(lad(X.T, y))
-    assert abs(m - m_true)/m_true < 1e-2
-    assert abs(b - b_true)/b_true < 1e-2
+    assert abs(m - m_true)/m_true < 5e-2
+    assert abs(b - b_true)/b_true < 5e-2
 
     m, b = sess.run(lad(X.T, y, yerr=np.std(y)))
-    assert abs(m - m_true)/m_true < 1e-2
-    assert abs(b - b_true)/b_true < 1e-2
+    assert abs(m - m_true)/m_true < 5e-2
+    assert abs(b - b_true)/b_true < 5e-2
