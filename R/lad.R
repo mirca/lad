@@ -1,18 +1,18 @@
 suppressMessages(suppressWarnings(library(CVXR)))
 
-lad <- function(X, y, yerr = NA, l1_regularizer = .5, maxiter = 50,
+lad <- function(X, y, yerr = NA, l1_regularizer = 0., maxiter = 50,
                 rtol = 1e-4, eps = 1e-6) {
   X <- as.matrix(X)
-  y <- as.matrix(y)
+  y <- as.array(y)
 
   if (is.na(yerr)) {
     yerr <- 1.
   } else {
-    yerr <- as.matrix(yerr) / sqrt(2.)
+    yerr <- as.vector(yerr) / sqrt(2.)
   }
 
-  X <- X %*% diag(1 / yerr)
-  y <- y %*% diag(1 / yerr)
+  X <- X / yerr
+  y <- y / yerr
 
   p <- ncol(X)
   beta <- Variable(p)
@@ -23,7 +23,7 @@ lad <- function(X, y, yerr = NA, l1_regularizer = .5, maxiter = 50,
   n <- 1
   while (n <= maxiter) {
     reg_factor <- norm(beta_star, "1")
-    l1_factor <- eps + sqrt(abs(y - X %*% beta_star))
+    l1_factor <- as.vector(eps + sqrt(abs(y - X %*% beta_star)))
 
     X <- X / l1_factor
     y <- y / l1_factor
