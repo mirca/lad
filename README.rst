@@ -23,8 +23,8 @@ The MM algorithm update turns out to be
 
 which belongs to the class of iterative reweighted least-squares: https://en.wikipedia.org/wiki/Iteratively_reweighted_least_squares
 
-Installation
-------------
+Python Version
+--------------
 
 To install the development version, proceed as follows::
 
@@ -34,9 +34,6 @@ To install the development version, proceed as follows::
 Or install the lastest version on PyPi::
 
     pip install lad
-
-Dependencies
-------------
 
 Installation dependencies::
 
@@ -48,3 +45,19 @@ Test dependencies::
     - tensorflow
     - pytest
     - pytest-cov
+
+R version
+=========
+
+To install the development version, proceed as follows::
+
+    git clone https://github.com/mirca/lad.git
+
+Inside the R console (or your favourite terminal), type:
+
+    install.packages("devtools") # you haven't installed devtools already
+    install_github("mirca/lad")
+
+The R version depends on the package ``CVXR`` which can be installed as follows::
+
+    install_github("anqif/CVXR")
