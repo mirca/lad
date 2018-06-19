@@ -28,7 +28,7 @@ lad <- function(X, y, yerr = NA, l1_regularizer = .5, maxiter = 50,
     X <- X / l1_factor
     y <- y / l1_factor
 
-    l2_l2 <- sum((y - X%*%beta)^2) + (l1_regularizer / reg_factor) * sum(beta ^ 2)
+    l2_l2 <- sum((y - X %*% beta) ^ 2) + (l1_regularizer / reg_factor) * sum(beta ^ 2)
     solution <- solve(Problem(Minimize(l2_l2)))
     beta_tmp <- as.matrix(solution$getValue(beta))
     rel_err <- norm(beta_star - beta_tmp, '1') / max(1., reg_factor)
