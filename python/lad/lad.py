@@ -2,7 +2,7 @@ import tensorflow as tf
 import math
 import numpy as np
 
-def lad(X, y, yerr=None, l1_regularizer=0.5, maxiter=50, rtol=1e-4,
+def lad(X, y, yerr=None, l1_regularizer=0., maxiter=50, rtol=1e-4,
         eps=1e-4, session=None):
     """
     Linear least absolute deviations with L1 norm regularization using
@@ -11,26 +11,24 @@ def lad(X, y, yerr=None, l1_regularizer=0.5, maxiter=50, rtol=1e-4,
     Parameters
     ----------
     X : (n, m)-matrix
-        Design matrix
+        Design matrix.
     y : (n, 1) matrix
-        Vector of observations
+        Vector of observations.
     yerr : (n, 1) matrix
-        Vector of standard deviations on the observations
+        Vector of standard deviations on the observations.
     l1_regularizer : float
         Factor to control the importance of the L1 regularization.
-        Note: due to a limitation of tensorflow.matrix_solve_ls,
-        do not set this value to zero
     maxiter : int
         Maximum number of iterations of the majorization-minimization algorithm.
         If maxiter equals zero, then this function returns the Weighted
-        Least-Squares coefficients
+        Least-Squares coefficients.
     rtol : float
-        Relative tolerance used as an early stopping criterion
+        Relative tolerance used as an early stopping criterion.
     eps : float
         Inscrease this value if tensorflow raises an exception
-        saying that the Cholesky decomposition was not successful
+        saying that the Cholesky decomposition was not successful.
     session : tf.Session object
-        A tensorflow.Session object
+        A tensorflow.Session object.
 
     Returns
     -------
