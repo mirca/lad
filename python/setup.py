@@ -22,7 +22,7 @@ with open(path.join(here, '../README.rst'), encoding='utf-8') as f:
 setup(
     name='lad',
     packages=['lad'],
-    version='0.1.dev0',
+    version='0.1.dev1',
     description='Least absolute deviations with L1 regularization using majorization-minimization',
     long_description=long_description,
     url='https://github.com/mirca/lad',
