@@ -1,5 +1,3 @@
-suppressMessages(suppressWarnings(library(CVXR)))
-
 lad <- function(X, y, yerr = NA, l1_regularizer = 0., maxiter = 50,
                 rtol = 1e-4, eps = 1e-6) {
   X <- as.matrix(X)

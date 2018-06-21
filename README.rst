@@ -57,7 +57,3 @@ Inside the R console (or your favourite terminal), type::
 
     install.packages("devtools") # you haven't installed devtools already
     install_github("mirca/lad")
-
-The R version depends on the package ``CVXR`` which can be installed as follows::
-
-    install_github("anqif/CVXR")
