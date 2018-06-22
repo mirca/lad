@@ -46,14 +46,9 @@ Test dependencies::
     - pytest
     - pytest-cov
 
-R version (work in progress)
-----------------------------
+R version
+---------
 
-To install the development version, proceed as follows::
+Inside the R console, type::
 
-    git clone https://github.com/mirca/lad.git
-
-Inside the R console (or your favourite terminal), type::
-
-    install.packages("devtools") # you haven't installed devtools already
-    install_github("mirca/lad")
+    devtools::install_github("mirca/lad/r/lad")
