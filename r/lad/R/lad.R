@@ -31,6 +31,5 @@ lad <- function(X, y, yerr = NA, l1_regularizer = 0., maxiter = 50,
     beta <- beta_k
     k <- k + 1
   }
-
   return(beta)
 }

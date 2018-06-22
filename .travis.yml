@@ -1,15 +1,23 @@
-language: python
-python:
-  - 2.7
-  - 3.6
-before_install:
-  - sudo apt-get install -y python-numpy
-  - pip install tensorflow
-  - pip install codecov
-  - pip install pytest-cov
-# command to run tests
-script:
-  - pytest
+matrix:
+    include:
+      - language: python
+        python:
+          - 2.7
+          - 3.6
+        before_install:
+          - sudo apt-get install -y python-numpy
+          - pip install tensorflow
+          - pip install codecov
+          - pip install pytest-cov
+        # command to run tests
+        script:
+          - pytest
 
-after_sucess:
-  - codecov
+        after_sucess:
+          - codecov
+      - language: r
+        r:
+            - release
+            - devel
+        cache: packages
+        r_packages: testthat

@@ -1,0 +1,9 @@
+Package: lad
+Type: Package
+Title: L1 Regularized Linear Least Absolute Deviations
+Version: 0.1.0
+Author: Zé Vinícius
+Maintainer: Zé Vinícius <jvmirca@gmail.com>
+Description: solves the L1 regularized linear
+License: MIT | file LICENSE
+Encoding: UTF-8
