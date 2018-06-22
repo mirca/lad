@@ -16,6 +16,8 @@ matrix:
         after_sucess:
           - codecov
       - language: r
+        before_install:
+            - cd r/lad
         r:
             - release
             - devel
