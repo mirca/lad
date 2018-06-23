@@ -7,4 +7,4 @@ Maintainer: Zé Vinícius <jvmirca@gmail.com>
 Description: solves the L1 regularized linear
 License: MIT | file LICENSE
 Encoding: UTF-8
-Remotes: testthat
+Imports: testthat
