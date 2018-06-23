@@ -17,9 +17,15 @@ matrix:
           - codecov
       - language: r
         before_install:
-            - cd r/lad
+          - cd r/lad
         r:
-            - release
-            - devel
+          - release
+          - devel
         cache: packages
         r_packages: testthat
+        install:
+          - R -e 'devtools::install_deps(dep = T)'
+
+        script:
+          - R CMD build .
+          - R CMD check *tar.gz

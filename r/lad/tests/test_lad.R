@@ -1,3 +1,6 @@
+library(testthat)
+library(lad)
+
 test_that("test least absolute deviations", {
   n <- 10000
   beta_true <- as.matrix(c(3, 10))
