@@ -61,9 +61,13 @@ lad(X, y, yerr = NA, l1_regularizer = 0, maxiter = 50, rtol = 1e-04, eps = 1e-06
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
+
+  n <- 10000
+  beta_true <- as.matrix(c(3, 10))
+  X <- matrix(stats::rnorm(n), nrow = n)
+  X <- cbind(X, array(1, c(nrow(X))))
+  y <- X %*% beta_true + matrix(stats::rnorm(n), nrow = n)
+  beta_lad <- lad(X, y, l1_regularizer=.5)
 
 ## The function is currently defined as
 function (X, y, yerr = NA, l1_regularizer = 0, maxiter = 50, 

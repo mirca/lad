@@ -1,3 +1,3 @@
 library(testthat)
-source("../lad.R")
+library(lad)
 test_results <- test_dir(".", reporter = "summary")
