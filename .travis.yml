@@ -1,26 +1,25 @@
 matrix:
-    include:
-      - language: python
-        python:
-          - 2.7
-          - 3.6
-        before_install:
-          - sudo apt-get install -y python-numpy
-          - pip install tensorflow
-          - pip install codecov
-          - pip install pytest-cov
-        # command to run tests
-        script:
-          - pytest
+  include:
+    - language: python
+      python:
+        - 2.7
+        - 3.6
+      before_install:
+        - sudo apt-get install -y python-numpy
+        - pip install tensorflow
+        - pip install codecov
+        - pip install pytest-cov
+      # command to run tests
+      script:
+        - pytest
 
-        after_sucess:
-          - codecov
-      - language: r
-        before_install:
-          - cd r/lad
-        r:
-          - release
-          - devel
-        cache: packages
-        r_packages:
-          - testthat
+      after_sucess:
+        - codecov
+    - language: r
+      warnings_are_errors: false
+      before_install:
+        - cd r/lad
+      r:
+        - release
+        - devel
+      cache: packages
