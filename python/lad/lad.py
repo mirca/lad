@@ -2,11 +2,15 @@ import tensorflow as tf
 import math
 import numpy as np
 
+
+__all__ = ['lad', 'lad_polyfit']
+
+
 def lad(X, y, yerr=None, l1_regularizer=0., maxiter=50, rtol=1e-4,
         eps=1e-4, session=None):
     """
     Linear least absolute deviations with L1 norm regularization using
-    Majorization-Minimization. See [1]_ for a similar mathematical derivation.
+    Majorization-Minimization. See [1] for a similar mathematical derivation.
 
     Parameters
     ----------
@@ -25,7 +29,7 @@ def lad(X, y, yerr=None, l1_regularizer=0., maxiter=50, rtol=1e-4,
     rtol : float
         Relative tolerance used as an early stopping criterion.
     eps : float
-        Inscrease this value if tensorflow raises an exception
+        Increase this value if tensorflow raises an exception
         saying that the Cholesky decomposition was not successful.
     session : tf.Session object
         A tensorflow.Session object.
@@ -75,3 +79,15 @@ def lad(X, y, yerr=None, l1_regularizer=0., maxiter=50, rtol=1e-4,
                 break
             n += 1
     return x
+
+
+def lad_polyfit(x, y, order=1, **kwargs):
+    """Finds the coefficients of the polynomial of order ``order``
+    that minimizes the Least Absolute Deviations.
+    """
+    X = np.ones(len(x))
+    for i in range(order):
+        X = np.vstack([x ** order, X])
+
+    return lad(X.T, y, **kwargs)
+
