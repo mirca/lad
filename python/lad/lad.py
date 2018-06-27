@@ -85,10 +85,4 @@ def lad_polyfit(x, y, order=1, **kwargs):
     """Finds the coefficients of the polynomial of order ``order``
     that minimizes the Least Absolute Deviations.
     """
-    X = np.ones(len(x))
-    for i in range(order):
-        X = np.vstack([x ** (i+1), X])
-
-
-    return lad(X.T, y, **kwargs)
-
+    return lad(np.vander(x, N=order+1), y, **kwargs)
