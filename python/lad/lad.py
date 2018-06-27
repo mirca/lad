@@ -89,5 +89,6 @@ def lad_polyfit(x, y, order=1, **kwargs):
     for i in range(order):
         X = np.vstack([x ** (i+1), X])
 
+
     return lad(X.T, y, **kwargs)
 
