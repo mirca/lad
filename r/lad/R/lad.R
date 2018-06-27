@@ -31,5 +31,14 @@ lad <- function(X, y, yerr = NA, l1_regularizer = 0., maxiter = 50,
     beta <- beta_k
     k <- k + 1
   }
-  return(beta)
+  return (beta)
+}
+
+lad_polyfit <- function(x, y, order = 1, ...){
+  # constructs Vandermonde's matrix
+  X = array(1, c(nrow(x)))
+  for (i in 1:order) {
+    X <- cbind(x ^ i , X)
+  }
+  return (lad(X, y, ...))
 }

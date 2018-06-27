@@ -1,1 +1,2 @@
-exportPattern("^[[:alpha:]]+")
+export(lad)
+export(lad_polyfit)
