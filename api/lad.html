@@ -200,7 +200,7 @@
 <dt id="lad.lad.lad">
 <code class="descclassname">lad.lad.</code><code class="descname">lad</code><span class="sig-paren">(</span><em>X</em>, <em>y</em>, <em>yerr=None</em>, <em>l1_regularizer=0.0</em>, <em>maxiter=50</em>, <em>rtol=0.0001</em>, <em>eps=0.0001</em>, <em>session=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lad/lad.html#lad"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lad.lad.lad" title="Permalink to this definition">¶</a></dt>
 <dd><p>Linear least absolute deviations with L1 norm regularization using
-Majorization-Minimization. See <a href="#id2"><span class="problematic" id="id1">[1]_</span></a> for a similar mathematical derivation.</p>
+Majorization-Minimization. See [1] for a similar mathematical derivation.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -233,7 +233,7 @@ Least-Squares coefficients.</p>
 </div></blockquote>
 <p><strong>eps</strong> : float</p>
 <blockquote>
-<div><p>Inscrease this value if tensorflow raises an exception
+<div><p>Increase this value if tensorflow raises an exception
 saying that the Cholesky decomposition was not successful.</p>
 </div></blockquote>
 <p><strong>session</strong> : tf.Session object</p>
@@ -256,6 +256,13 @@ with L1 regularization.</p>
 <dt>[1] Phillips, R. F. Least absolute deviations estimation via the EM</dt>
 <dd>algorithm. Statistics and Computing, 12, 281-285, 2002.</dd>
 </dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="lad.lad.lad_polyfit">
+<code class="descclassname">lad.lad.</code><code class="descname">lad_polyfit</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>order=1</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lad/lad.html#lad_polyfit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lad.lad.lad_polyfit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the coefficients of the polynomial of order <code class="docutils literal notranslate"><span class="pre">order</span></code>
+that minimizes the Least Absolute Deviations.</p>
 </dd></dl>
 
 </div>
