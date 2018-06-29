@@ -28,3 +28,10 @@ def test_lad_polyfit_order(order):
 
     if order > 1:
         assert (abs(coeffs[:-2]) < 1e-1).all()
+
+def test_lad_noise_free():
+    beta_true = np.arange(9).reshape(1, -1)
+    X = np.vander(x, N=np.shape(beta_true)[-1])
+    y_true = np.dot(beta_true, X.T).reshape(-1)
+    beta_est = sess.run(lad_polyfit(x, y_true, order=np.shape(beta_true)[-1]-1))
+    assert (np.abs((beta_true.T - beta_est)) / (1 + beta_true.T) < 1e-2).all()
