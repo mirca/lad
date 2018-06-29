@@ -18,6 +18,7 @@ lad <- function(X, y, yerr = NA, l1_regularizer = 0., maxiter = 50,
   beta <- solve(t(X) %*% X + diag(l1_regularizer, p)) %*% t(X) %*% y
   reg_factor <- norm(beta, '1')
   lambda <- diag(l1_regularizer / reg_factor, p)
+  Lk <- lambda
   k <- 1
   while (k <= maxiter) {
     l1_factor <- as.vector(eps + sqrt(abs(ynorm - Xnorm %*% beta)))
@@ -25,7 +26,7 @@ lad <- function(X, y, yerr = NA, l1_regularizer = 0., maxiter = 50,
     Xnorm <- X / l1_factor
     ynorm <- y / l1_factor
 
-    beta_k <- solve(t(Xnorm) %*% Xnorm + lambda) %*% t(Xnorm) %*% ynorm
+    beta_k <- solve(t(Xnorm) %*% Xnorm + Lk) %*% t(Xnorm) %*% ynorm
     rel_err <- norm(beta - beta_k, '1') / max(1., reg_factor)
 
     if (rel_err < rtol)
@@ -33,7 +34,7 @@ lad <- function(X, y, yerr = NA, l1_regularizer = 0., maxiter = 50,
 
     beta <- beta_k
     reg_factor <- norm(beta, '1')
-    lambda <- lambda / reg_factor
+    Lk <- lambda / reg_factor
     k <- k + 1
   }
   return (beta)
