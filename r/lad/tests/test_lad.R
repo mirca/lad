@@ -17,3 +17,19 @@ test_that("test_lad_polyfit", {
   expect_equal(all.equal(beta_true, beta_lad, tol = 1e-2,
                          check.attributes = FALSE), TRUE)
 })
+
+
+test_that("test_lad_polyfit_noise_free", {
+  order <- 13
+  beta_true <- as.matrix(seq(0, order, by=1))
+  x <- as.matrix(seq(-1, 1, length=n), nrow = n)
+  X <- array(1, c(nrow(x)))
+  for (i in 1:order) {
+    X <- cbind(x ^ i , X)
+  }
+  y <- X %*% beta_true
+
+  beta_lad <- lad_polyfit(x, y, order = order)
+  expect_equal(all.equal(beta_true, beta_lad, tol = 1e-6,
+                         check.attributes = FALSE), TRUE)
+})
