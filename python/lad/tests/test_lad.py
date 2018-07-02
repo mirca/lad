@@ -34,4 +34,4 @@ def test_lad_noise_free():
     X = np.vander(x, N=np.shape(beta_true)[-1])
     y_true = np.dot(beta_true, X.T).reshape(-1)
     beta_est = sess.run(lad_polyfit(x, y_true, order=np.shape(beta_true)[-1]-1))
-    assert (np.abs((beta_true.T - beta_est)) / (1 + beta_true.T) < 1e-2).all()
+    assert (np.abs((beta_true.T - beta_est)) / (1 + beta_true.T) < 2e-2).all()
