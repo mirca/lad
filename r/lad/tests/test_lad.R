@@ -20,7 +20,7 @@ test_that("test_lad_polyfit", {
 
 
 test_that("test_lad_polyfit_noise_free", {
-  order <- 13
+  order <- 15
   beta_true <- as.matrix(seq(0, order, by=1))
   x <- as.matrix(seq(-1, 1, length=n), nrow = n)
   X <- array(1, c(nrow(x)))
@@ -30,6 +30,6 @@ test_that("test_lad_polyfit_noise_free", {
   y <- X %*% beta_true
 
   beta_lad <- lad_polyfit(x, y, order = order)
-  expect_equal(all.equal(beta_true, beta_lad, tol = 1e-6,
+  expect_equal(all.equal(beta_true, beta_lad, tol = 1e-4,
                          check.attributes = FALSE), TRUE)
 })

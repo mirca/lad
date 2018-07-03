@@ -6,7 +6,7 @@ from ..lad import lad, lad_polyfit
 
 sess = tf.Session()
 true_params = np.array([3, 10])
-x = np.linspace(0, 10, 10000)
+x = np.linspace(-1, 1, 10000)
 y = np.random.laplace(loc=x * true_params[0] + true_params[1], scale=1.)
 
 
@@ -30,7 +30,7 @@ def test_lad_polyfit_order(order):
         assert (abs(coeffs[:-2]) < 1e-1).all()
 
 def test_lad_noise_free():
-    beta_true = np.arange(9).reshape(1, -1)
+    beta_true = np.arange(20).reshape(1, -1)
     X = np.vander(x, N=np.shape(beta_true)[-1])
     y_true = np.dot(beta_true, X.T).reshape(-1)
     beta_est = sess.run(lad_polyfit(x, y_true, order=np.shape(beta_true)[-1]-1))
