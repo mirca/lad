@@ -7,12 +7,12 @@
 Least Absolute Deviations with L1 Regularization
 ================================================
 
-Installation
-============
+Welcome
+=======
 
-To install **lad**, open your favourite terminal and run::
-
-    pip install lad
+Welcome to **lad**, an open source implementation of the Least
+Absolute Deviations algorithm with support for L1 Regularization
+written in Python (using Tensorflow) and R.
 
 .. toctree::
    :maxdepth: 1
