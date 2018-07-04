@@ -1,8 +1,11 @@
 .. _installation:
 
-*********************
-Installation - Python
-*********************
+************
+Installation
+************
+
+Python
+------
 
 The development version can be installed as follows::
 
@@ -10,9 +13,9 @@ The development version can be installed as follows::
     $ cd lad
     $ pip install -e .
 
-****************
-Installation - R
-****************
+
+R
+--
 
 The R version can be installed as follows::
 
