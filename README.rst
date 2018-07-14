@@ -1,6 +1,7 @@
 lad
 ===
-|ci-badge| |cov-badge| |zenodo-badge|
+
+|ci-badge| |appveyor-badge| |cov-badge| |zenodo-badge|
 
 .. |ci-badge| image:: https://travis-ci.org/mirca/lad.svg?branch=master
     :target: https://travis-ci.org/mirca/lad
@@ -8,20 +9,23 @@ lad
     :target: https://codecov.io/gh/mirca/lad/branch/master/
 .. |zenodo-badge| image:: https://zenodo.org/badge/136721899.svg
    :target: https://zenodo.org/badge/latestdoi/136721899
+.. |appveyor-badge| image:: https://ci.appveyor.com/api/projects/status/j0fitxs1hmyogntv/branch/master?svg=true
+                    :target: https://ci.appveyor.com/project/mirca/lad
 
-Least absolute deviations with L1 regularization using majorization-minimization.
+Linear least absolute deviations with L1 regularization.
+
 In estimation theory terms, this is the Maximum A Posterior (MAP) estimator for
 a Laplacian likelihood with Laplacian prior, i.e.
 
 .. image:: lad.png
     :align: center
 
-The MM algorithm update turns out to be
+The algorithm yield by the Majorization-Minization framework turns out to be
 
 .. image:: lad2.png
     :align: center
 
-which belongs to the class of iterative reweighted least-squares: https://en.wikipedia.org/wiki/Iteratively_reweighted_least_squares
+which belongs to the family of iterative reweighted least-squares: https://en.wikipedia.org/wiki/Iteratively_reweighted_least_squares
 
 Python Version
 --------------
