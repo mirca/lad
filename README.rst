@@ -20,7 +20,7 @@ a Laplacian likelihood with Laplacian prior, i.e.
 .. image:: lad.png
     :align: center
 
-The algorithm yield by the Majorization-Minization framework turns out to be
+The algorithm yield by the Majorization-Minimization framework turns out to be
 
 .. image:: lad2.png
     :align: center
