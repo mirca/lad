@@ -7,4 +7,4 @@ The following IPython notebook describe the usability of **lad**:
 .. toctree::
     :maxdepth: 1
 
-    lad-example.ipynb
+    getting-started.ipynb
