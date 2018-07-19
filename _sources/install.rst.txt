@@ -7,7 +7,11 @@ Installation
 Python
 ------
 
-The development version can be installed as follows::
+The latest release is available on PyPi and can be installed as
+``pip install lad``.
+
+The most recent development version lives on GitHub.
+It can be installed as follows::
 
     $ git clone https://github.com/mirca/lad.git
     $ cd lad

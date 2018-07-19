@@ -30,7 +30,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Tutorials" href="../ipython_notebooks/index.html" />
-    <link rel="prev" title="API documentation" href="index.html" /> 
+    <link rel="prev" title="API reference" href="index.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -89,12 +89,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../install.html#r">R</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">API documentation</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Least Absolute Deviations</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../ipython_notebooks/index.html">Tutorials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../ipython_notebooks/lad-example.html">Robust fitting of linear models using Least Absolute Deviations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ipython_notebooks/getting-started.html">Robust fitting of linear models using Least Absolute Deviations</a></li>
 </ul>
 </li>
 </ul>
@@ -143,7 +143,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">API documentation</a> &raquo;</li>
+          <li><a href="index.html">API reference</a> &raquo;</li>
         
       <li>Least Absolute Deviations</li>
     
@@ -202,7 +202,7 @@
 <span id="least-absolute-deviations"></span><h1>Least Absolute Deviations<a class="headerlink" href="#module-lad.lad" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="lad.lad.lad">
-<code class="descclassname">lad.lad.</code><code class="descname">lad</code><span class="sig-paren">(</span><em>X</em>, <em>y</em>, <em>yerr=None</em>, <em>l1_regularizer=0.0</em>, <em>maxiter=50</em>, <em>rtol=0.0001</em>, <em>eps=0.0001</em>, <em>session=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lad/lad.html#lad"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lad.lad.lad" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">lad.lad.</code><code class="descname">lad</code><span class="sig-paren">(</span><em>X</em>, <em>y</em>, <em>yerr=None</em>, <em>l1_regularizer=0.0</em>, <em>cov=False</em>, <em>maxiter=50</em>, <em>rtol=0.0001</em>, <em>eps=0.0001</em>, <em>session=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lad/lad.html#lad"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lad.lad.lad" title="Permalink to this definition">¶</a></dt>
 <dd><p>Linear least absolute deviations with L1 norm regularization using
 Majorization-Minimization. See [1] for a similar mathematical derivation.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -224,6 +224,12 @@ Majorization-Minimization. See [1] for a similar mathematical derivation.</p>
 <p><strong>l1_regularizer</strong> : float</p>
 <blockquote>
 <div><p>Factor to control the importance of the L1 regularization.</p>
+</div></blockquote>
+<p><strong>cov</strong> : boolean</p>
+<blockquote>
+<div><p>Whether or not to return the covariance matrix of the best fitted
+coefficients. Standard errors on the coefficients can be computed
+as the square root of the diagonal of the covariance matrix.</p>
 </div></blockquote>
 <p><strong>maxiter</strong> : int</p>
 <blockquote>
@@ -247,9 +253,13 @@ saying that the Cholesky decomposition was not successful.</p>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>x</strong> : (m, 1) matrix</p>
-<blockquote class="last">
+<blockquote>
 <div><p>Vector of coefficients that minimizes the least absolute deviations
 with L1 regularization.</p>
+</div></blockquote>
+<p><strong>cov</strong> : (m, m) matrix</p>
+<blockquote class="last">
+<div><p>Covariance matrix of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 </div></blockquote>
 </td>
 </tr>
@@ -264,7 +274,7 @@ with L1 regularization.</p>
 <code class="descclassname">lad.lad.</code><code class="descname">lad_polyfit</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>order=1</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lad/lad.html#lad_polyfit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lad.lad.lad_polyfit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Least absolute deviations polynomial fitting.</p>
 <p>Fit a polynomial <code class="docutils literal notranslate"><span class="pre">p(x)</span> <span class="pre">=</span> <span class="pre">p[0]</span>&#160; <span class="pre">+</span> <span class="pre">...</span> <span class="pre">+</span> <span class="pre">p[order]</span> <span class="pre">*</span> <span class="pre">x**order</span></code> of degree
-<code class="docutils literal notranslate"><span class="pre">deg</span></code> to points (x, y). Returns a vector of coefficients <code class="docutils literal notranslate"><span class="pre">p</span></code>
+<code class="docutils literal notranslate"><span class="pre">order</span></code> to points (x, y). Returns a vector of coefficients <code class="docutils literal notranslate"><span class="pre">p</span></code>
 that minimises the absolute error.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -288,7 +298,7 @@ that minimises the absolute error.</p>
 </div></blockquote>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>x</strong> : (m, 1) matrix</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>p</strong> : (m, 1) matrix</p>
 <blockquote class="last">
 <div><p>Vector of coefficients that minimizes the least absolute deviations
 with L1 regularization.</p>
@@ -312,7 +322,7 @@ with L1 regularization.</p>
         <a href="../ipython_notebooks/index.html" class="btn btn-neutral float-right" title="Tutorials" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="API documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral" title="API reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
