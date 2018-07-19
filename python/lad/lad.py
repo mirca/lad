@@ -6,7 +6,7 @@ import numpy as np
 __all__ = ['lad', 'lad_polyfit']
 
 
-def lad(X, y, yerr=None, l1_regularizer=0., maxiter=50, rtol=1e-4,
+def lad(X, y, yerr=None, l1_regularizer=0., cov=False, maxiter=50, rtol=1e-4,
         eps=1e-4, session=None):
     """
     Linear least absolute deviations with L1 norm regularization using
@@ -22,6 +22,10 @@ def lad(X, y, yerr=None, l1_regularizer=0., maxiter=50, rtol=1e-4,
         Vector of standard deviations on the observations.
     l1_regularizer : float
         Factor to control the importance of the L1 regularization.
+    cov : boolean
+        Whether or not to return the covariance matrix of the best fitted
+        coefficients. Standard errors on the coefficients can be computed
+        as the square root of the diagonal of the covariance matrix.
     maxiter : int
         Maximum number of iterations of the majorization-minimization algorithm.
         If maxiter equals zero, then this function returns the Weighted
@@ -39,6 +43,8 @@ def lad(X, y, yerr=None, l1_regularizer=0., maxiter=50, rtol=1e-4,
     x : (m, 1) matrix
         Vector of coefficients that minimizes the least absolute deviations
         with L1 regularization.
+    cov : (m, m) matrix
+        Covariance matrix of ``x``.
 
     References
     ----------
@@ -74,7 +80,17 @@ def lad(X, y, yerr=None, l1_regularizer=0., maxiter=50, rtol=1e-4,
             if session.run(rel_err) < rtol:
                 break
             n += 1
-    return x
+    if cov:
+        reg_factor = tf.norm(x, ord=1)
+        l1_factor = tf.maximum(eps, tf.sqrt(tf.abs(y_tensor - tf.matmul(X_tensor, x))))
+        Xn = X_tensor/l1_factor
+        p = tf.shape(Xn)[1]
+        Ip = tf.eye(p, dtype=tf.float64)
+        cov = tf.matrix_solve(tf.matmul(tf.transpose(Xn), Xn)
+                              + (l1_regularizer/reg_factor) * Ip, Ip)
+        return x, cov
+    else:
+        return x
 
 
 def lad_polyfit(x, y, order=1, **kwargs):
