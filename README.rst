@@ -1,7 +1,7 @@
 lad
 ===
 
-|ci-badge| |appveyor-badge| |cov-badge| |zenodo-badge|
+|ci-badge| |appveyor-badge| |cov-badge| |landscape-badge| |zenodo-badge|
 
 .. |ci-badge| image:: https://travis-ci.org/mirca/lad.svg?branch=master
     :target: https://travis-ci.org/mirca/lad
@@ -11,6 +11,9 @@ lad
    :target: https://zenodo.org/badge/latestdoi/136721899
 .. |appveyor-badge| image:: https://ci.appveyor.com/api/projects/status/j0fitxs1hmyogntv/branch/master?svg=true
                     :target: https://ci.appveyor.com/project/mirca/lad
+.. |landscape-badge| image:: https://landscape.io/github/mirca/lad/master/landscape.svg?style=flat-square
+   :target: https://landscape.io/github/mirca/lad/master
+   :alt: Code Health
 
 Linear least absolute deviations with L1 regularization.
 
