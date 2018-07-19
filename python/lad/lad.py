@@ -31,7 +31,9 @@ def lad(X, y, yerr=None, l1_regularizer=0., cov=False, maxiter=50, rtol=1e-4,
         If maxiter equals zero, then this function returns the Weighted
         Least-Squares coefficients.
     rtol : float
-        Relative tolerance used as an early stopping criterion.
+        Relative tolerance on the coefficients used as an early stopping
+        criterion. If |x_{k+1} - x_{k}|/max(1, |x_{k}|) < rtol,
+        where |x| is the L1-norm of x, the algorithm stops.
     eps : float
         Increase this value if tensorflow raises an exception
         saying that the Cholesky decomposition was not successful.
@@ -61,6 +63,7 @@ def lad(X, y, yerr=None, l1_regularizer=0., cov=False, maxiter=50, rtol=1e-4,
     y_tensor = tf.reshape(tf.convert_to_tensor(y / whitening_factor,
                                                dtype=tf.float64), (-1, 1))
     eps = tf.convert_to_tensor(eps, dtype=tf.float64)
+    one = tf.constant(1., dtype=tf.float64)
 
     with session or tf.Session() as session:
         # solves the L2 norm with L2 regularization problem
@@ -69,20 +72,22 @@ def lad(X, y, yerr=None, l1_regularizer=0., cov=False, maxiter=50, rtol=1e-4,
         n = 0
         while n < maxiter:
             reg_factor = tf.norm(x, ord=1)
-            l1_factor = tf.maximum(eps, tf.sqrt(tf.abs(y_tensor - tf.matmul(X_tensor, x))))
-
-            # Solves the reweighted least squares problem with L2 regularization
+            l1_factor = tf.maximum(eps,
+                                   tf.sqrt(tf.abs(y_tensor - tf.matmul(X_tensor, x))))
+            # solve the reweighted least squares problem with L2 regularization
             xo = tf.matrix_solve_ls(X_tensor/l1_factor, y_tensor/l1_factor,
                                     l2_regularizer=l1_regularizer/reg_factor)
-
-            rel_err = tf.norm(x - xo, ord=1) / tf.maximum(tf.constant(1., dtype=tf.float64), reg_factor)
+            # compute stopping criterion
+            rel_err = tf.norm(x - xo, ord=1) / tf.maximum(one, reg_factor)
+            # update
             x = xo
             if session.run(rel_err) < rtol:
                 break
             n += 1
     if cov:
         reg_factor = tf.norm(x, ord=1)
-        l1_factor = tf.maximum(eps, tf.sqrt(tf.abs(y_tensor - tf.matmul(X_tensor, x))))
+        l1_factor = tf.maximum(eps,
+                               tf.sqrt(tf.abs(y_tensor - tf.matmul(X_tensor, x))))
         Xn = X_tensor/l1_factor
         p = tf.shape(Xn)[1]
         Ip = tf.eye(p, dtype=tf.float64)
