@@ -240,8 +240,29 @@
 
 
 <div class="viewcode-block" id="lad_polyfit"><a class="viewcode-back" href="../../api/lad.html#lad.lad.lad_polyfit">[docs]</a><span class="k">def</span> <span class="nf">lad_polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Finds the coefficients of the polynomial of order ``order``</span>
-<span class="sd">    that minimizes the Least Absolute Deviations.</span>
+    <span class="sd">&quot;&quot;&quot;Least absolute deviations polynomial fitting.</span>
+
+<span class="sd">    Fit a polynomial ``p(x) = p[0]  + ... + p[order] * x**order`` of degree</span>
+<span class="sd">    ``deg`` to points (x, y). Returns a vector of coefficients ``p``</span>
+<span class="sd">    that minimises the absolute error.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : (n, 1)-matrix</span>
+<span class="sd">        x-coordinate of the observations.</span>
+<span class="sd">    y : (n, 1) matrix</span>
+<span class="sd">        Vector of observations.</span>
+<span class="sd">    order : int</span>
+<span class="sd">        Degree of the fitting polynomial.</span>
+<span class="sd">    **kwargs : dict</span>
+<span class="sd">        See the docstrings of ``lad``.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    x : (m, 1) matrix</span>
+<span class="sd">        Vector of coefficients that minimizes the least absolute deviations</span>
+<span class="sd">        with L1 regularization.</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">lad</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vander</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="n">order</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">y</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 </pre></div>
