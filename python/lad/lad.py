@@ -42,8 +42,7 @@ def lad(X, y, yerr=None, l1_regularizer=0., maxiter=50, rtol=1e-4,
 
     References
     ----------
-    [1] Phillips, R. F. Least absolute deviations estimation via the EM
-        algorithm. Statistics and Computing, 12, 281-285, 2002.
+    [1] Phillips, R. F. Least absolute deviations estimation via the EM algorithm. Statistics and Computing, 12, 281-285, 2002.
     """
 
     if yerr is not None:
@@ -82,7 +81,7 @@ def lad_polyfit(x, y, order=1, **kwargs):
     """Least absolute deviations polynomial fitting.
 
     Fit a polynomial ``p(x) = p[0]  + ... + p[order] * x**order`` of degree
-    ``deg`` to points (x, y). Returns a vector of coefficients ``p``
+    ``order`` to points (x, y). Returns a vector of coefficients ``p``
     that minimises the absolute error.
 
     Parameters
@@ -98,7 +97,7 @@ def lad_polyfit(x, y, order=1, **kwargs):
 
     Returns
     -------
-    x : (m, 1) matrix
+    p : (m, 1) matrix
         Vector of coefficients that minimizes the least absolute deviations
         with L1 regularization.
 
