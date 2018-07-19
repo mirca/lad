@@ -15,7 +15,9 @@ lad
 Linear least absolute deviations with L1 regularization.
 
 In estimation theory terms, this is the Maximum A Posterior (MAP) estimator for
-a Laplacian likelihood with Laplacian prior.
+a Laplacian likelihood with Laplacian prior, i.e.
+
+.. image:: lad.png
 
 The algorithm yield by the Majorization-Minimization framework turns out to be
 an iteratively reweighted least-squares. See ``notes/notes.pdf``.
