@@ -79,7 +79,28 @@ def lad(X, y, yerr=None, l1_regularizer=0., maxiter=50, rtol=1e-4,
 
 
 def lad_polyfit(x, y, order=1, **kwargs):
-    """Finds the coefficients of the polynomial of order ``order``
-    that minimizes the Least Absolute Deviations.
+    """Least absolute deviations polynomial fitting.
+
+    Fit a polynomial ``p(x) = p[0]  + ... + p[order] * x**order`` of degree
+    ``deg`` to points (x, y). Returns a vector of coefficients ``p``
+    that minimises the absolute error.
+
+    Parameters
+    ----------
+    x : (n, 1)-matrix
+        x-coordinate of the observations.
+    y : (n, 1) matrix
+        Vector of observations.
+    order : int
+        Degree of the fitting polynomial.
+    **kwargs : dict
+        See the docstrings of ``lad``.
+
+    Returns
+    -------
+    x : (m, 1) matrix
+        Vector of coefficients that minimizes the least absolute deviations
+        with L1 regularization.
+
     """
     return lad(np.vander(x, N=order+1), y, **kwargs)
