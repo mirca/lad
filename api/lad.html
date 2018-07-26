@@ -239,7 +239,9 @@ Least-Squares coefficients.</p>
 </div></blockquote>
 <p><strong>rtol</strong> : float</p>
 <blockquote>
-<div><p>Relative tolerance used as an early stopping criterion.</p>
+<div><p>Relative tolerance on the coefficients used as an early stopping
+criterion. If <a href="#id1"><span class="problematic" id="id2">|x_{k+1} - x_{k}|</span></a>/max(1, <a href="#id3"><span class="problematic" id="id4">|x_{k}|</span></a>) &lt; rtol,
+where <a href="#id5"><span class="problematic" id="id6">|x|</span></a> is the L1-norm of x, the algorithm stops.</p>
 </div></blockquote>
 <p><strong>eps</strong> : float</p>
 <blockquote>
