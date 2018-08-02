@@ -12,3 +12,4 @@ coverage.xml
 *.aux
 *.tex
 *.log
+python/docs/sphinx_rtd_theme
