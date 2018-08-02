@@ -22,3 +22,10 @@ matrix:
         - release
         - devel
       cache: packages
+    - language: julia
+      julia:
+          - 0.6
+          - nightly
+      script:
+          julia -e 'Pkg.clone(pwd())'
+          julia -e 'Pkg.tests("Lad", coverage=true)'
