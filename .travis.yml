@@ -27,5 +27,5 @@ matrix:
           - 0.6
           - nightly
       script:
-          julia -e 'Pkg.clone(pwd())'
+          julia -e 'Pkg.clone("https://github.com/mirca/Lad.jl")'
           julia -e 'Pkg.tests("Lad", coverage=true)'
