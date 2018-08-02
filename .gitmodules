@@ -1,0 +1,3 @@
+[submodule "julia/Lad.jl"]
+	path = julia/Lad.jl
+	url = git@github.com:mirca/Lad.jl.git
