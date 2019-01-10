@@ -14,6 +14,8 @@ lad
 .. |landscape-badge| image:: https://landscape.io/github/mirca/lad/master/landscape.svg?style=flat-square
    :target: https://landscape.io/github/mirca/lad/master
    :alt: Code Health
+.. |downloads-badge| image:: https://pepy.tech/badge/lad
+   :target: https://pepy.tech/project/lad
 
 Linear least absolute deviations with L1 regularization.
 
