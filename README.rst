@@ -1,7 +1,7 @@
 lad
 ===
 
-|ci-badge| |appveyor-badge| |cov-badge| |landscape-badge| |zenodo-badge|
+|ci-badge| |appveyor-badge| |cov-badge| |landscape-badge| |zenodo-badge| |downloads-badge|
 
 .. |ci-badge| image:: https://travis-ci.org/mirca/lad.svg?branch=master
     :target: https://travis-ci.org/mirca/lad
