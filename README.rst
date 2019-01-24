@@ -56,9 +56,13 @@ R version
 Inside the R console, type::
 
     devtools::install_github("mirca/lad/r/lad")
-    
+
 Support
 -------
 
-If this software has been useful to you, please consider buying me a coffee at:
-`https://buymeacoff.ee/Csg8p1Y <https://buymeacoff.ee/Csg8p1Y>`_. Thanks!
+If this software has been useful to you, please consider buying me a coffee at
+`https://buymeacoff.ee/Csg8p1Y <https://buymeacoff.ee/Csg8p1Y>`_ or via WeChat:
+
+.. image:: static/wechat_pay.jpg
+
+Thanks!
