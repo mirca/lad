@@ -3,6 +3,7 @@ lad
 
 |ci-badge| |appveyor-badge| |cov-badge| |landscape-badge| |zenodo-badge| |downloads-badge|
 
+
 .. |ci-badge| image:: https://travis-ci.org/mirca/lad.svg?branch=master
     :target: https://travis-ci.org/mirca/lad
 .. |cov-badge| image:: https://codecov.io/gh/mirca/lad/branch/master/graph/badge.svg
@@ -16,6 +17,8 @@ lad
    :alt: Code Health
 .. |downloads-badge| image:: https://pepy.tech/badge/lad
    :target: https://pepy.tech/project/lad
+.. |buy-me-a-coffee| image:: https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png
+   :target: https://www.buymeacoffee.com/Csg8p1Y
 
 Linear least absolute deviations with L1 regularization.
 
@@ -61,7 +64,7 @@ Support
 -------
 
 If this software has been useful to you, please consider buying me a coffee at
-`https://buymeacoff.ee/Csg8p1Y <https://buymeacoff.ee/Csg8p1Y>`_ or via WeChat:
+|buy-me-a-coffee| or via WeChat:
 
 .. image:: static/wechat_pay.jpg
 
