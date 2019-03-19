@@ -1,3 +1,5 @@
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmirca%2Flad.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmirca%2Flad?ref=badge_shield)
+
 lad
 ===
 
@@ -69,3 +71,7 @@ If this software has been useful to you, please consider buying me a coffee at
 .. image:: static/wechat_pay.jpg
 
 Thanks!
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmirca%2Flad.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmirca%2Flad?ref=badge_large)
