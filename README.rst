@@ -1,9 +1,7 @@
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmirca%2Flad.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmirca%2Flad?ref=badge_shield)
-
 lad
 ===
 
-|ci-badge| |appveyor-badge| |cov-badge| |landscape-badge| |zenodo-badge| |downloads-badge|
+|ci-badge| |appveyor-badge| |cov-badge| |zenodo-badge| |downloads-badge|
 
 
 .. |ci-badge| image:: https://travis-ci.org/mirca/lad.svg?branch=master
@@ -14,9 +12,6 @@ lad
    :target: https://zenodo.org/badge/latestdoi/136721899
 .. |appveyor-badge| image:: https://ci.appveyor.com/api/projects/status/j0fitxs1hmyogntv/branch/master?svg=true
                     :target: https://ci.appveyor.com/project/mirca/lad
-.. |landscape-badge| image:: https://landscape.io/github/mirca/lad/master/landscape.svg?style=flat-square
-   :target: https://landscape.io/github/mirca/lad/master
-   :alt: Code Health
 .. |downloads-badge| image:: https://pepy.tech/badge/lad
    :target: https://pepy.tech/project/lad
 .. |buy-me-a-coffee| image:: https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png
@@ -71,7 +66,3 @@ If this software has been useful to you, please consider buying me a coffee at
 .. image:: static/wechat_pay.jpg
 
 Thanks!
-
-
-## License
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmirca%2Flad.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmirca%2Flad?ref=badge_large)
